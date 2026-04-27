@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Efektura — Jakub Strejc, architekt</title>
 <meta name="description" content="Efektura — architektonické studio Jakuba Strejce. Navrhuji prostory, které mají charakter, logiku a trvají.">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="icons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="icons/favicon-16.png" type="image/png" sizes="16x16">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -17,9 +21,9 @@
     --ink:       #0A0A0A;
     --ink-mid:   #3A3A3A;
     --ink-muted: #888888;
-    --accent:    #D42B2B;
-    --accent-lt: #E86060;
-    --accent-dark: #A01E1E;
+    --accent:    #EA3323;
+    --accent-lt: #F06A5A;
+    --accent-dark: #C02418;
     --brand-bg:  #0A0A0A;
     --line:      #E0DCDA;
     --white:     #FFFFFF;
@@ -65,20 +69,16 @@
     box-shadow: 0 1px 0 rgba(255,255,255,.08);
   }
   .nav-logo {
-    font-family: var(--sans);
-    font-size: 17px;
-    font-weight: 500;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--accent);
+    display: flex; align-items: center;
+    flex-shrink: 0;
   }
-  .nav-logo-sub {
-    font-size: 10px;
-    font-weight: 300;
-    letter-spacing: .14em;
-    color: rgba(255,255,255,.35);
-    text-transform: uppercase;
-    margin-left: 2px;
+  .nav-logo-img {
+    height: 28px;
+    width: auto;
+    display: block;
+    /* PNG má černé pozadí — screen blend mode ho "odstraní" na tmavé liště */
+    mix-blend-mode: screen;
+    filter: brightness(1.05);
   }
   .nav-links {
     display: flex; gap: 40px;
@@ -492,6 +492,63 @@
     line-height: 1.75;
   }
 
+  /* scrollovatelný kontejner na mobilu */
+  .process-wrap {
+    overflow-x: auto;
+    padding-bottom: 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) rgba(255,255,255,.05);
+  }
+  .process-wrap::-webkit-scrollbar { height: 2px; }
+  .process-wrap::-webkit-scrollbar-track { background: rgba(255,255,255,.05); }
+  .process-wrap::-webkit-scrollbar-thumb { background: var(--accent); }
+
+  /* ─── PROCESS DIAGRAM — dvě linie ─── */
+  .process-wrap {
+    overflow-x: auto;
+    padding-bottom: 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) rgba(255,255,255,.05);
+  }
+  .process-wrap::-webkit-scrollbar { height: 2px; }
+  .process-wrap::-webkit-scrollbar-track { background: rgba(255,255,255,.05); }
+  .process-wrap::-webkit-scrollbar-thumb { background: var(--accent); }
+
+  /*
+   * SVG diagram se renderuje jako inline SVG — CSS pouze obaluje kontejner
+   */
+  .process-svg-wrap {
+    min-width: 900px;
+    width: 100%;
+  }
+  .process-svg-wrap svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* ── legenda ── */
+  .process-legend {
+    display: flex;
+    gap: 32px;
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,.07);
+    flex-wrap: wrap;
+  }
+  .process-legend-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    color: rgba(255,255,255,.4);
+  }
+  .process-legend-line {
+    width: 28px; height: 2px; flex-shrink: 0;
+  }
+  .process-legend-line.white { background: rgba(255,255,255,.7); }
+  .process-legend-line.red   { background: var(--accent); }
+
   /* ─── O MNĚ ─── */
   #omne { background: var(--bg); }
   .about-grid {
@@ -678,10 +735,7 @@
     .projects-grid { grid-template-columns: 1fr; }
     .project-card:first-child { grid-row: auto; }
 
-    .collab-steps {
-      grid-template-columns: 1fr;
-      gap: 32px;
-    }
+    .collab-steps { grid-template-columns: 1fr 1fr; gap: 32px; }
     .collab-steps::before { display: none; }
 
     .about-grid { grid-template-columns: 1fr; }
@@ -732,7 +786,9 @@
 
 <!-- NAV -->
 <nav id="nav">
-  <a href="#" class="nav-logo">Efektura</a>
+  <a href="#" class="nav-logo" aria-label="Efektura — domů">
+    <img src="logo.png" alt="Efektura" class="nav-logo-img">
+  </a>
   <ul class="nav-links">
     <li><a href="#projekty">Projekty</a></li>
     <li><a href="#spoluprace">Spolupráce</a></li>
@@ -899,7 +955,7 @@
   <div class="lb-body">
     <div class="lb-gallery">
       <div class="lb-gallery-main">
-        <img id="lbMainImg" src="" alt="">
+        <img id="lbMainImg" src="" alt="" style="display:none">
       </div>
       <div class="lb-gallery-thumbs" id="lbThumbs"></div>
     </div>
@@ -924,35 +980,35 @@
 <section id="spoluprace" class="section-pad">
   <div class="section-header reveal">
     <span class="section-num">02 /</span>
-    <h2 class="section-title">Jak spolupracujeme</h2>
+    <h2 class="section-title">Proces spolupráce</h2>
     <div class="section-line"></div>
   </div>
 
   <div class="collab-steps">
     <div class="collab-step reveal">
       <div class="collab-step-num">1</div>
-      <h3 class="collab-step-title">První setkání</h3>
+      <h3 class="collab-step-title">Úvodní schůzka</h3>
       <p class="collab-step-desc">Nezávazná konzultace. Poslechnu si váš záměr, potřeby a představy o prostoru i rozpočtu.</p>
     </div>
     <div class="collab-step reveal" style="transition-delay:.1s">
       <div class="collab-step-num">2</div>
-      <h3 class="collab-step-title">Studie&nbsp;a&nbsp;koncept</h3>
+      <h3 class="collab-step-title">Návrh stavby</h3>
       <p class="collab-step-desc">Zpracuji varianty dispozičního řešení a prostorový koncept. Hledáme společně ten pravý směr.</p>
     </div>
     <div class="collab-step reveal" style="transition-delay:.2s">
       <div class="collab-step-num">3</div>
-      <h3 class="collab-step-title">Projektová dokumentace</h3>
-      <p class="collab-step-desc">Kompletní dokumentace pro stavební povolení nebo ohlášení. Koordinace profesí a inženýring.</p>
+      <h3 class="collab-step-title">Povolení záměru</h3>
+      <p class="collab-step-desc">Kompletní dokumentace pro stavební povolení. Koordinace profesí, inženýring a jednání s dotčenými orgány.</p>
     </div>
     <div class="collab-step reveal" style="transition-delay:.3s">
       <div class="collab-step-num">4</div>
-      <h3 class="collab-step-title">Realizační projekt</h3>
-      <p class="collab-step-desc">Detailní podklady pro dodavatele. Výběrové řízení na zhotovitele stavby.</p>
+      <h3 class="collab-step-title">Dokumentace provedení stavby</h3>
+      <p class="collab-step-desc">Detailní realizační podklady pro zhotovitele včetně specifikace materiálů, výběrového řízení a harmonogramu.</p>
     </div>
     <div class="collab-step reveal" style="transition-delay:.4s">
       <div class="collab-step-num">5</div>
-      <h3 class="collab-step-title">Autorský dozor</h3>
-      <p class="collab-step-desc">Průběžné návštěvy stavby, kontrola kvality provedení, operativní řešení změn.</p>
+      <h3 class="collab-step-title">Realizace stavby</h3>
+      <p class="collab-step-desc">Autorský dozor po celou dobu výstavby — kontrolní dny, soulad s projektovou dokumentací, operativní řešení změn.</p>
     </div>
   </div>
 </section>
@@ -968,7 +1024,7 @@
   <div class="about-grid">
     <div class="about-img-wrap reveal">
       <div class="about-img">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="Jakub Strejc, architekt" loading="lazy">
+        <img src="images/about/portrait.jpg" alt="Jakub Strejc, architekt" loading="lazy">
       </div>
     </div>
     <div class="about-text reveal" style="transition-delay:.15s">
@@ -1066,7 +1122,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <span class="footer-logo">Efektura</span>
+  <img src="logo.png" alt="Efektura" style="height:20px; width:auto; mix-blend-mode:screen; opacity:.7;">
   <span>Jakub Strejc · Autorizovaný architekt ČKA</span>
   <a href="mailto:jakub@efektura.cz">jakub@efektura.cz</a>
 </footer>
@@ -1155,6 +1211,7 @@ function renderLightbox() {
   document.getElementById('lbInfoTitle').textContent = p.title;
   document.getElementById('lbInfoSub').textContent = p.sub;
   document.getElementById('lbDesc').textContent = p.desc;
+  document.getElementById('lbMainImg').style.display = 'block';
   document.getElementById('lbMainImg').src = p.images[currentImg];
   document.getElementById('lbMainImg').alt = p.title;
 
