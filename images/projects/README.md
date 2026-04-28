@@ -1,17 +1,26 @@
-# Správa projektů — images/projects/
+# Fotografie projektů — kam co nahrát
 
-Každý projekt má vlastní podsložku pojmenovanou bez diakritiky a mezer.
-
-## Struktura složky projektu
+Každý projekt má vlastní složku. Do každé složky nahraj tyto soubory:
 
 ```
-nazev-projektu/
-├── thumb.jpg        ← náhled v gridu na webu
-├── cover.jpg        ← hlavní fotka v lightboxu
-├── detail-01.jpg    ← galerie v lightboxu
-├── detail-02.jpg
-└── detail-03.jpg    ← (přidat kolik je potřeba)
+thumb.jpg     ← náhled v gridu na webu        (poměr 3:2, min. 800×533 px)
+cover.jpg     ← hlavní fotka v lightboxu       (poměr 4:3, min. 1200×900 px)
+detail-01.jpg ← galerie v lightboxu
+detail-02.jpg
+detail-03.jpg ← (přidat kolik je potřeba)
 ```
+
+## Přehled složek
+
+| Složka                    | Projekt                              |
+|---------------------------|--------------------------------------|
+| 1plus1-vychodni/          | 1+1 Východní (Karlovy Vary, 2018)    |
+| raiffeisenbank-lounge/    | Raiffeisenbank lounge (Praha 6, 2018)|
+| mezonet-ovenecka/         | Mezonet Ovenecká (Praha 7, 2018)     |
+| bon-vinohrady/            | BON Vinohrady (Praha 2, 2019)        |
+| bon-smichov/              | BON Smíchov (Praha 5, 2020)          |
+| vila-klanovice/           | Vila Klánovice (Praha 9, 2020)       |
+| ha-noi-dejvice/           | Ha Noi Dejvice (Praha 6, 2021)       |
 
 ## Doporučené rozměry a velikosti
 
@@ -21,18 +30,6 @@ nazev-projektu/
 | cover.jpg    | 1600 × 1200 px | 82 %    | 400 kB        |
 | detail-*.jpg | 1600 × 1200 px | 82 %    | 350 kB        |
 
-Poměr stran thumb = 3:2, cover a detaily = 4:3.
+## Nástroj pro optimalizaci (zdarma, bez instalace)
 
-## Přidání nového projektu
-
-1. Vytvořit složku:  images/projects/nazev-projektu/
-2. Vložit fotky dle tabulky výše
-3. Otevřít soubor:   js/projects.js
-4. Zkopírovat jeden z existujících objektů, upravit údaje, přidat na konec pole
-5. Uložit — projekt se ihned objeví na webu
-
-## Nástroje pro úpravu fotek
-
-- **Squoosh** (zdarma, v prohlížeči): https://squoosh.app
-- **ImageOptim** (Mac, zdarma): https://imageoptim.com
-- **GIMP** (zdarma, Windows/Mac/Linux)
+→ https://squoosh.app — nahrát fotku, nastavit rozměr a kvalitu, stáhnout
