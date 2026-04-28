@@ -16,10 +16,10 @@ const projects = [
     thumbnail: 'images/projects/1plus1-vychodni/thumb.jpg',
     images: [
       'images/projects/1plus1-vychodni/cover.jpg',
-      'images/projects/1plus1-vychodni/detail-01.jpg',
+      'images/projects/1plus1-vychodni/detail-01.png',
       'images/projects/1plus1-vychodni/detail-02.png',
 	  'images/projects/1plus1-vychodni/detail-03.png',
-	  'images/projects/1plus1-vychodni/detail-04.png',
+	  'images/projects/1plus1-vychodni/detail-04.jpg',
     ]
   },
   {
