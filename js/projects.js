@@ -17,7 +17,10 @@ const projects = [
     images: [
       'images/projects/1plus1-vychodni/cover.jpg',
       'images/projects/1plus1-vychodni/detail-01.jpg',
-      'images/projects/1plus1-vychodni/detail-02.jpg',
+      'images/projects/1plus1-vychodni/detail-02.png',
+	  'images/projects/1plus1-vychodni/detail-03.png',
+	  'images/projects/1plus1-vychodni/detail-04.png',
+	  'images/projects/1plus1-vychodni/detail-05.jpg',
     ]
   },
   {
@@ -34,6 +37,11 @@ const projects = [
       'images/projects/raiffeisenbank-lounge/cover.jpg',
       'images/projects/raiffeisenbank-lounge/detail-01.jpg',
       'images/projects/raiffeisenbank-lounge/detail-02.jpg',
+	  'images/projects/raiffeisenbank-lounge/detail-03.jpg',
+	  'images/projects/raiffeisenbank-lounge/detail-04.jpg',
+	  'images/projects/raiffeisenbank-lounge/detail-05.jpg',
+	  'images/projects/raiffeisenbank-lounge/detail-06.png',
+	  'images/projects/raiffeisenbank-lounge/detail-07.jpg',
     ]
   },
   {
@@ -50,6 +58,13 @@ const projects = [
       'images/projects/mezonet-ovenecka/cover.jpg',
       'images/projects/mezonet-ovenecka/detail-01.jpg',
       'images/projects/mezonet-ovenecka/detail-02.jpg',
+	  'images/projects/mezonet-ovenecka/detail-03.jpg',
+	  'images/projects/mezonet-ovenecka/detail-04.png',
+	  'images/projects/mezonet-ovenecka/detail-05.png',
+	  'images/projects/mezonet-ovenecka/detail-06.png',
+	  'images/projects/mezonet-ovenecka/detail-07.png',
+	  'images/projects/mezonet-ovenecka/detail-08.png',
+	  'images/projects/mezonet-ovenecka/detail-09.jpg',
     ]
   },
   {
@@ -63,9 +78,16 @@ const projects = [
     desc:      'Návrh japonského bistra kombinuje prvky tradiční japonské kultury s moderním street food konceptem. Interiér je inspirován atmosférou japonských ulic — tradiční japonské fasády na stěnách, očištěné cihlové klenby a jednoduché osvětlení žárovkami s papírovými stínidly.',
     thumbnail: 'images/projects/bon-vinohrady/thumb.jpg',
     images: [
-      'images/projects/bon-vinohrady/cover.jpg',
+      'images/projects/bon-vinohrady/cover.png',
       'images/projects/bon-vinohrady/detail-01.jpg',
-      'images/projects/bon-vinohrady/detail-02.jpg',
+      'images/projects/bon-vinohrady/detail-02.png',
+	  'images/projects/bon-vinohrady/detail-03.png',
+	  'images/projects/bon-vinohrady/detail-04.png',
+	  'images/projects/bon-vinohrady/detail-05.png',
+	  'images/projects/bon-vinohrady/detail-06.png',
+	  'images/projects/bon-vinohrady/detail-07.png',
+	  'images/projects/bon-vinohrady/detail-08.png',
+	  'images/projects/bon-vinohrady/detail-09.jpg',
     ]
   },
   {
@@ -82,6 +104,14 @@ const projects = [
       'images/projects/bon-smichov/cover.jpg',
       'images/projects/bon-smichov/detail-01.jpg',
       'images/projects/bon-smichov/detail-02.jpg',
+	  'images/projects/bon-smichov/detail-03.jpg',
+	  'images/projects/bon-smichov/detail-04.jpg',
+	  'images/projects/bon-smichov/detail-05.jpg',
+	  'images/projects/bon-smichov/detail-06.png',
+	  'images/projects/bon-smichov/detail-07.png',
+	  'images/projects/bon-smichov/detail-08.png',
+	  'images/projects/bon-smichov/detail-09.png',
+	  'images/projects/bon-smichov/detail-10.png',
     ]
   },
   {
@@ -95,9 +125,21 @@ const projects = [
     desc:      'Kompletní rekonstrukce prvorepublikové vily citlivě kombinuje zachování původních hodnot objektu s moderním architektonickým řešením. Dispoziční úpravy propojují dva původně oddělené objekty. Interiér je sjednocen použitím dubového dřeva, černých detailů a světlých tónů.',
     thumbnail: 'images/projects/vila-klanovice/thumb.jpg',
     images: [
-      'images/projects/vila-klanovice/cover.jpg',
-      'images/projects/vila-klanovice/detail-01.jpg',
-      'images/projects/vila-klanovice/detail-02.jpg',
+      'images/projects/vila-klanovice/cover.png',
+      'images/projects/vila-klanovice/detail-01.png',
+      'images/projects/vila-klanovice/detail-02.png',
+	  'images/projects/vila-klanovice/detail-03.png',
+	  'images/projects/vila-klanovice/detail-04.png',
+	  'images/projects/vila-klanovice/detail-05.png',
+	  'images/projects/vila-klanovice/detail-06.png',
+	  'images/projects/vila-klanovice/detail-07.png',
+	  'images/projects/vila-klanovice/detail-08.png',
+	  'images/projects/vila-klanovice/detail-09.png',
+	  'images/projects/vila-klanovice/detail-10.png',
+	  'images/projects/vila-klanovice/detail-11.png',
+	  'images/projects/vila-klanovice/detail-12.png',
+	  'images/projects/vila-klanovice/detail-13.png',
+	  'images/projects/vila-klanovice/detail-14.jpg',
     ]
   },
   {
@@ -111,9 +153,16 @@ const projects = [
     desc:      'Redesign interiéru restaurace přináší vizuální a materiálové řešení inspirované tradičními rodinnými recepty a vietnamským street foodem. Interiér je definován kombinací bílé cihly, tmavě šedé stěrky, dřeva a černé oceli, doplněných zlatými akcenty a autorskou grafikou.',
     thumbnail: 'images/projects/ha-noi-dejvice/thumb.jpg',
     images: [
-      'images/projects/ha-noi-dejvice/cover.jpg',
-      'images/projects/ha-noi-dejvice/detail-01.jpg',
-      'images/projects/ha-noi-dejvice/detail-02.jpg',
+      'images/projects/ha-noi-dejvice/cover.png',
+      'images/projects/ha-noi-dejvice/detail-01.png',
+      'images/projects/ha-noi-dejvice/detail-02.png',
+	  'images/projects/ha-noi-dejvice/detail-03.png',
+	  'images/projects/ha-noi-dejvice/detail-04.png',
+	  'images/projects/ha-noi-dejvice/detail-05.png',
+	  'images/projects/ha-noi-dejvice/detail-06.png',
+	  'images/projects/ha-noi-dejvice/detail-07.png',
+	  'images/projects/ha-noi-dejvice/detail-08.png',
+	  'images/projects/ha-noi-dejvice/detail-09.jpg',
     ]
   },
 ];
