@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Helvetica system font — žádný external load -->
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -30,8 +30,8 @@
     --line-red:    rgba(234,51,35,.5);
     --white:       #FFFFFF;
 
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans:  'Jost', sans-serif;
+    --serif: Helvetica Neue, Helvetica, Arial, sans-serif;
+    --sans:  Helvetica Neue, Helvetica, Arial, sans-serif;
 
     --nav-h: 72px;
   }
@@ -75,10 +75,9 @@
     flex-shrink: 0;
   }
   .nav-logo-img {
-    height: 28px;
+    height: 44px;
     width: auto;
     display: block;
-    /* PNG má černé pozadí — screen blend mode ho "odstraní" na tmavé liště */
     mix-blend-mode: screen;
     filter: brightness(1.05);
   }
@@ -216,7 +215,7 @@
   }
   .hero-name em {
     display: block;
-    font-style: italic;
+    font-style: normal;
     color: rgba(255,255,255,.55);
   }
   .hero-desc {
@@ -436,11 +435,11 @@
   .lb-gallery-thumbs { display: flex; gap: 8px; }
   .lb-thumb {
     width: 80px; height: 56px; overflow: hidden; border-radius: 2px;
-    opacity: .35; cursor: crosshair; transition: opacity .2s;
-    border: 1px solid transparent; flex-shrink: 0;
+    opacity: .45; cursor: crosshair; transition: opacity .2s, border-color .2s;
+    border: 1px solid rgba(255,255,255,.55); flex-shrink: 0;
   }
-  .lb-thumb.active { opacity: 1; border-color: var(--accent); }
-  .lb-thumb:hover { opacity: .7; }
+  .lb-thumb.active { opacity: 1; border-color: var(--accent); border-width: 2px; }
+  .lb-thumb:hover { opacity: .8; border-color: rgba(255,255,255,.8); }
   .lb-info { padding-top: 8px; }
   .lb-info-title { font-family: var(--sans); font-size: 32px; font-weight: 200; letter-spacing: -.01em; color: var(--white); line-height: 1.1; margin-bottom: 4px; }
   .lb-info-sub { font-size: 12px; letter-spacing: .15em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
@@ -573,19 +572,12 @@
   /* ─── O MNĚ ─── */
   #omne { background: var(--bg); }
   .about-grid {
-    display: grid; grid-template-columns: 1fr 1.1fr;
+    display: grid; grid-template-columns: 1fr 4fr;
     gap: clamp(48px, 8vw, 120px);
     align-items: center;
   }
   .about-img-wrap { position: relative; }
-  .about-img-wrap::before {
-    content: '';
-    position: absolute;
-    top: -20px; left: -20px;
-    width: 60%; height: 60%;
-    border: 1px solid rgba(234,51,35,.3);
-    z-index: 0; pointer-events: none;
-  }
+  .about-img-wrap::before { display: none; }
   .about-img {
     position: relative; z-index: 1;
     aspect-ratio: 3/4; overflow: hidden;
@@ -599,7 +591,7 @@
     margin-bottom: 32px;
     color: var(--white);
   }
-  .about-intro em { font-style: italic; color: var(--accent); }
+  .about-intro em { font-style: normal; color: var(--accent); }
   .about-body {
     font-size: 15px; color: var(--ink-mid);
     line-height: 1.85; margin-bottom: 40px;
@@ -684,9 +676,9 @@
     font-size: clamp(20px, 2.5vw, 30px);
     font-weight: 200;
     color: var(--white); letter-spacing: .01em;
-    line-height: 1.3; margin-bottom: 28px;
+    line-height: 2; margin-bottom: 40px;
   }
-  .contact-cta-text em { font-style: italic; color: var(--ink-muted); }
+  .contact-cta-text em { font-style: normal; color: var(--ink-muted); }
   .contact-cta-btn {
     display: inline-flex; align-items: center; gap: 14px;
     background: var(--accent); color: var(--white);
@@ -997,11 +989,11 @@
 
   <div class="contact-layout">
     <div class="reveal">
-      <a href="mailto:jakub@efektura.cz" class="contact-big-email">
-        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        jakub@efektura.cz
-      </a>
       <div class="contact-info">
+        <div class="contact-info-row">
+          <span class="contact-info-label">E-mail</span>
+          <span class="contact-info-val"><a href="mailto:jakub@efektura.cz" style="color:inherit;text-decoration:none;transition:color .2s" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='inherit'">jakub@efektura.cz</a></span>
+        </div>
         <div class="contact-info-row">
           <span class="contact-info-label">Telefon</span>
           <span class="contact-info-val">+420 725 296 297</span>
@@ -1042,8 +1034,8 @@
 
 <!-- FOOTER -->
 <footer>
-  <img src="logo.png" alt="Efektura" style="height:20px; width:auto; mix-blend-mode:screen; opacity:.7;">
-  <span>Jakub Strejc · Autorizovaný architekt ČKA</span>
+  <img src="logo.png" alt="Efektura" style="height:30px; width:auto; mix-blend-mode:screen; opacity:.8;">
+  <span>Jakub Strejc · Ing. arch.</span>
   <a href="mailto:jakub@efektura.cz">jakub@efektura.cz</a>
 </footer>
 
@@ -1064,7 +1056,8 @@ function renderGrid() {
   if (!projects.length) { console.error('Efektura: pole projects[] je prázdné'); return; }
   console.log('Efektura: renderGrid() — načítám', projects.length, 'projektů');
 
-  grid.innerHTML = projects.map((p, i) => `
+  const sorted = [...projects].reverse();
+  grid.innerHTML = sorted.map((p, i) => `
     <div class="project-card${i === 0 ? ' project-card--featured' : ''}"
          onclick="openLightbox(${i})">
       <div class="project-card-img">
@@ -1082,6 +1075,11 @@ function renderGrid() {
         <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </button>
     </div>`).join('');
+  // Oprava indexů pro lightbox — sorted je reversed
+  grid.querySelectorAll('.project-card').forEach((card, i) => {
+    const realIdx = projects.length - 1 - i;
+    card.setAttribute('onclick', `openLightbox(${realIdx})`);
+  });
 }
 
 // ── Lightbox ─────────────────────────────────────────────────
@@ -1153,7 +1151,7 @@ function initSlideshow() {
   if (!wrap || typeof projects === 'undefined' || !projects.length) return;
 
   // Vezmi cover fotku každého projektu
-  const imgs = projects.map(p => p.images[0]).filter(Boolean);
+  const imgs = [...projects].reverse().map(p => p.images[0]).filter(Boolean);
   if (!imgs.length) return;
 
   let current = 0;
