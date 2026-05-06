@@ -20,6 +20,8 @@ const projects = [
       'images/projects/1plus1-vychodni/detail-02.png',
 	  'images/projects/1plus1-vychodni/detail-03.png',
 	  'images/projects/1plus1-vychodni/detail-04.jpg',
+	  'images/projects/1plus1-vychodni/detail-05.png',
+	  'images/projects/1plus1-vychodni/detail-06.png',
     ]
   },
   {
